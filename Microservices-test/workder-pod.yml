@@ -1,11 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: workder-pod-app
+  name: worker-pod-app
   labels:
     name: worker-app-pod
     app: demo-voting-app
 spec:
   containers:
     - name: worker-app
-      image: kodecloud/examplevotingapp_worker:v1
+      image: dockersamples/examplevotingapp_worker
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
